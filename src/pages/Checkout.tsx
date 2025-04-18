@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Layout } from "@/components/layout/layout";
 import { Button } from "@/components/ui/button";
@@ -35,13 +34,14 @@ const cartItems = [
   }
 ];
 
-const subtotal = cartItems.reduce(
+// Explicitly type these financial values as numbers
+const subtotal: number = cartItems.reduce(
   (sum, item) => sum + item.price * item.quantity,
   0
 );
-const shipping = 0; // Free shipping
-const tax = subtotal * 0.07; // 7% tax rate
-const total = subtotal + shipping + tax;
+const shipping: number = 0; // Free shipping
+const tax: number = subtotal * 0.07; // 7% tax rate
+const total: number = subtotal + shipping + tax;
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState<"details" | "shipping" | "payment" | "review">("details");
