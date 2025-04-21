@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ShieldCheck, CreditCard, Check } from "lucide-react";
 import { products } from "@/data/products";
 
-// Sample checkout data - in a real app, these would come from state management
+const INR_SYMBOL = "₹";
+
 const cartItems = [
   {
     id: products[0].id,
@@ -34,7 +35,6 @@ const cartItems = [
   }
 ];
 
-// Explicitly type these financial values as numbers
 const subtotal: number = cartItems.reduce(
   (sum, item) => sum + item.price * item.quantity,
   0
@@ -46,24 +46,20 @@ const total: number = subtotal + shipping + tax;
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState<"details" | "shipping" | "payment" | "review">("details");
   const [formState, setFormState] = useState({
-    // Customer details
     email: "",
     firstName: "",
     lastName: "",
     phone: "",
-    // Shipping info
     address: "",
     apartment: "",
     city: "",
     state: "",
     zipCode: "",
     country: "USA",
-    // Payment details
     cardholderName: "",
     cardNumber: "",
     expiryDate: "",
     cvv: "",
-    // Preferences
     createAccount: false,
     saveInfo: true,
     shippingMethod: "standard"
@@ -88,7 +84,6 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = () => {
-    // In a real app, would submit order to backend
     alert("Thank you for your order! Your eco-friendly shoes are on the way.");
     // Navigate to confirmation page
   };
@@ -572,7 +567,7 @@ const Checkout = () => {
                                       <span>Qty: {item.quantity}</span>
                                     </div>
                                   </div>
-                                  <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                                  <p className="font-medium">{INR_SYMBOL}{(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
                               </div>
                             </div>
@@ -582,24 +577,24 @@ const Checkout = () => {
                         <div className="space-y-2">
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Subtotal</span>
-                            <span>${subtotal.toFixed(2)}</span>
+                            <span>{INR_SYMBOL}{subtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Shipping</span>
                             {shipping === 0 ? (
                               <span className="text-leafy-600">Free</span>
                             ) : (
-                              <span>${shipping.toFixed(2)}</span>
+                              <span>{INR_SYMBOL}{shipping.toFixed(2)}</span>
                             )}
                           </div>
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Tax</span>
-                            <span>${tax.toFixed(2)}</span>
+                            <span>{INR_SYMBOL}{tax.toFixed(2)}</span>
                           </div>
                           <Separator className="my-2" />
                           <div className="flex justify-between font-medium">
                             <span>Total</span>
-                            <span>${total.toFixed(2)}</span>
+                            <span>{INR_SYMBOL}{total.toFixed(2)}</span>
                           </div>
                         </div>
                       </div>
@@ -626,7 +621,6 @@ const Checkout = () => {
             </Tabs>
           </div>
           
-          {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 rounded-xl border bg-card p-6 shadow-sm">
               <h3 className="text-lg font-medium">Order Summary</h3>
@@ -644,7 +638,7 @@ const Checkout = () => {
                       <div className="flex flex-1 flex-col">
                         <div className="flex justify-between">
                           <p className="text-sm font-medium">{item.name}</p>
-                          <p className="text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+                          <p className="text-sm">{INR_SYMBOL}{(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                         <div className="mt-1 flex gap-2 text-xs text-muted-foreground">
                           <span>Size: {item.size}</span>
@@ -659,25 +653,25 @@ const Checkout = () => {
                 <div className="space-y-2 pt-4">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>{INR_SYMBOL}{subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Shipping</span>
                     {shipping === 0 ? (
                       <span className="text-leafy-600">Free</span>
                     ) : (
-                      <span>${shipping.toFixed(2)}</span>
+                      <span>{INR_SYMBOL}{shipping.toFixed(2)}</span>
                     )}
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Tax</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span>{INR_SYMBOL}{tax.toFixed(2)}</span>
                   </div>
                 </div>
                 
                 <div className="flex justify-between pt-4 font-medium">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{INR_SYMBOL}{total.toFixed(2)}</span>
                 </div>
               </div>
               

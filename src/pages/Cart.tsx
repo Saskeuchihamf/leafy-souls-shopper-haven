@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Layout } from "@/components/layout/layout";
 import { CartItem } from "@/components/ui/cart-item";
@@ -8,7 +7,8 @@ import { ChevronLeft, ChevronRight, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { products } from "@/data/products";
 
-// Sample cart items - in a real app, these would come from state management
+const INR_SYMBOL = "₹";
+
 const initialCartItems = [
   {
     id: products[0].id,
@@ -50,7 +50,7 @@ const Cart = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const shipping = cartItems.length > 0 ? (subtotal >= 100 ? 0 : 9.99) : 0;
+  const shipping = cartItems.length > 0 ? (subtotal >= 100 * 83 ? 0 : 9.99 * 83) : 0;
   const tax = subtotal * 0.07; // 7% tax rate
   const total = subtotal + shipping + tax;
 
@@ -112,7 +112,7 @@ const Cart = () => {
                 <div className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>{INR_SYMBOL}{subtotal.toFixed(2)}</span>
                   </div>
                   
                   <div className="flex items-center justify-between">
@@ -120,25 +120,25 @@ const Cart = () => {
                     {shipping === 0 ? (
                       <span className="text-leafy-600">Free</span>
                     ) : (
-                      <span>${shipping.toFixed(2)}</span>
+                      <span>{INR_SYMBOL}{shipping.toFixed(2)}</span>
                     )}
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Estimated Tax</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span>{INR_SYMBOL}{tax.toFixed(2)}</span>
                   </div>
 
                   <Separator />
                   
                   <div className="flex items-center justify-between font-medium">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>{INR_SYMBOL}{total.toFixed(2)}</span>
                   </div>
                   
                   {shipping > 0 && (
                     <p className="text-xs text-muted-foreground">
-                      Add ${(100 - subtotal).toFixed(2)} more to get free shipping!
+                      Add {INR_SYMBOL}{(8300 - subtotal).toFixed(2)} more to get free shipping!
                     </p>
                   )}
                 </div>
@@ -217,5 +217,4 @@ const Cart = () => {
 
 export default Cart;
 
-// Import the missing icons
 import { Leaf, Truck, CircleHelp } from "lucide-react";

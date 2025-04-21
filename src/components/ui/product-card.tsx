@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
@@ -12,6 +11,8 @@ interface ProductCardProps {
   isEco?: boolean;
   className?: string;
 }
+
+const INR_SYMBOL = "₹";
 
 export const ProductCard = ({
   id,
@@ -47,7 +48,7 @@ export const ProductCard = ({
       <div className="mt-4 space-y-1 text-left">
         <div className="flex items-center justify-between">
           <h3 className="font-medium text-foreground">{name}</h3>
-          <p className="font-medium text-primary">${price}</p>
+          <p className="font-medium text-primary">{INR_SYMBOL}{price.toFixed(2)}</p>
         </div>
         <p className="text-sm text-muted-foreground">{category}</p>
       </div>

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { X, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -14,6 +13,8 @@ interface CartItemProps {
   onRemove: (id: string) => void;
   onUpdateQuantity: (id: string, quantity: number) => void;
 }
+
+const INR_SYMBOL = "₹";
 
 export function CartItem({
   id,
@@ -93,7 +94,7 @@ export function CartItem({
               <span className="sr-only">Increase quantity</span>
             </Button>
           </div>
-          <div className="font-medium">${(price * quantity).toFixed(2)}</div>
+          <div className="font-medium">{INR_SYMBOL}{(price * quantity).toFixed(2)}</div>
         </div>
       </div>
     </div>

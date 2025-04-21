@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string;
   name: string;
@@ -18,7 +17,7 @@ export const products: Product[] = [
   {
     id: "eco-trail-01",
     name: "Eco Trail Runner",
-    price: 129.99,
+    price: 129.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
       "https://images.unsplash.com/photo-1607522370275-f14206abe5d3",
@@ -42,7 +41,7 @@ export const products: Product[] = [
   {
     id: "bamboo-loafer-01",
     name: "Bamboo Comfort Loafer",
-    price: 99.99,
+    price: 99.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1560343090-f0409e92791a",
       "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717",
@@ -65,7 +64,7 @@ export const products: Product[] = [
   {
     id: "hemp-casual-01",
     name: "Hemp Casual Sneaker",
-    price: 89.99,
+    price: 89.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa",
@@ -87,7 +86,7 @@ export const products: Product[] = [
   {
     id: "cork-sandal-01",
     name: "Cork Comfort Sandal",
-    price: 79.99,
+    price: 79.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1603487742131-4160ec999306",
       "https://images.unsplash.com/photo-1562273138-f46be4ebdf33",
@@ -109,7 +108,7 @@ export const products: Product[] = [
   {
     id: "recycled-runner-01",
     name: "Recycled Performance Runner",
-    price: 139.99,
+    price: 139.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
       "https://images.unsplash.com/photo-1539185441755-769473a23570",
@@ -132,7 +131,7 @@ export const products: Product[] = [
   {
     id: "canvas-slip-01",
     name: "Organic Canvas Slip-On",
-    price: 69.99,
+    price: 69.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1631984564919-1ffb8e6d4d85",
       "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05",
@@ -154,7 +153,7 @@ export const products: Product[] = [
   {
     id: "hiking-boot-01",
     name: "Sustainable Hiking Boot",
-    price: 159.99,
+    price: 159.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1638247025967-b4e38f787b76",
       "https://images.unsplash.com/photo-1520639888713-7851133b1ed0",
@@ -177,7 +176,7 @@ export const products: Product[] = [
   {
     id: "ballet-flat-01",
     name: "Eco Ballet Flat",
-    price: 89.99,
+    price: 89.99 * 83,
     images: [
       "https://images.unsplash.com/photo-1543163521-1bf539c55dd2",
       "https://images.unsplash.com/photo-1610398752800-146f269dfcc8",
